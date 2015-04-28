@@ -1,0 +1,44 @@
+{
+  "name": "mlo",
+  "version": "1.0.0",
+  "description": "Simple Module Loader",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "coverage": "mocha -r blanket -R html-cov > coverage.html",
+    "coveralls": "mocha -r blanket -R mocha-lcov-reporter | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ww24/mlo.git"
+  },
+  "keywords": [
+    "loader",
+    "module"
+  ],
+  "author": "ww24",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ww24/mlo/issues"
+  },
+  "homepage": "https://github.com/ww24/mlo",
+  "devDependencies": {
+    "blanket": "~1.1.6",
+    "chai": "~2.2.0",
+    "coveralls": "~2.11.2",
+    "mocha": "~2.2.4",
+    "mocha-lcov-reporter": "0.0.2"
+  },
+  "config": {
+    "blanket": {
+      "pattern": ["lib"],
+      "data-cover-never": ["node_modules"],
+      "data-cover-reporter-options": {
+        "shortnames": true
+      }
+    }
+  }
+}

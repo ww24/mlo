@@ -1,0 +1,19 @@
+.*
+!.gitignore
+
+# Windows
+Thumbs.db
+
+# Node.js
+node_modules
+*.log
+
+# Travis CI
+!.travis.yml
+
+# Coverage
+coverage.html
+coverage
+
+# editorconfig
+!.editorconfig
