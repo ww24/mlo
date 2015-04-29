@@ -1,7 +1,7 @@
 mlo [![NPM Version][npm-img]][npm-url] [![Build Status][travis-img]][travis-url] [![Coverage Status][coveralls-img]][coveralls-url]
 ===
 
-Simple Module loader for Node.js
+Simple module loader for Node.js
 
 Install
 -------
@@ -56,6 +56,10 @@ lib["mod-c"]        //= require("./lib/mod-c")
 lib["mod-d"].index  //= require("./lib/mod-d")
 lib["mod-d"].e      //= require("./lib/mod-d/e")
 ```
+
+License
+-------
+[MIT](LICENSE)
 
 [npm-url]: https://www.npmjs.org/package/mlo
 [npm-img]: https://img.shields.io/npm/v/mlo.svg
