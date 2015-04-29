@@ -29,16 +29,23 @@
     "blanket": "~1.1.6",
     "chai": "~2.2.0",
     "coveralls": "~2.11.2",
-    "mocha": "~2.2.4",
+    "mocha": "~1.21.5",
     "mocha-lcov-reporter": "0.0.2"
   },
   "config": {
     "blanket": {
-      "pattern": ["lib"],
-      "data-cover-never": ["node_modules"],
+      "pattern": [
+        "lib"
+      ],
+      "data-cover-never": [
+        "node_modules"
+      ],
       "data-cover-reporter-options": {
         "shortnames": true
       }
     }
+  },
+  "dependencies": {
+    "minimatch": "~2.0.5"
   }
 }
