@@ -11,7 +11,7 @@ var path = require("path");
 describe("mlo", function () {
   describe("basic", function () {
     it("no arguments", function () {
-      var libs = mlo("../examples").load();
+      var libs = mlo("fixtures").load();
 
       expect(Object.keys(libs)).to.have.length(3);
       expect(libs).to.have.property("module_a", "module_a.js");
@@ -20,7 +20,7 @@ describe("mlo", function () {
     });
 
     it("absolute path", function () {
-      var absolute_path = path.resolve(__dirname, "../examples");
+      var absolute_path = path.resolve(__dirname, "fixtures");
       var libs = mlo(absolute_path).load();
 
       expect(Object.keys(libs)).to.have.length(3);
@@ -38,7 +38,7 @@ describe("mlo", function () {
 
   describe("pattern", function () {
     it("module_*", function () {
-      var libs = mlo("../examples").load("module_*");
+      var libs = mlo("fixtures").load("module_*");
 
       expect(Object.keys(libs)).to.have.length(2);
       expect(libs).to.have.property("module_a", "module_a.js");
