@@ -1,6 +1,6 @@
 {
   "name": "mlo",
-  "version": "0.9.1",
+  "version": "1.0.0",
   "description": "Simple Module Loader",
   "main": "lib/index.js",
   "directories": {
@@ -8,8 +8,8 @@
   },
   "scripts": {
     "test": "mocha",
-    "coverage": "mocha -r blanket -R html-cov > coverage.html",
-    "coveralls": "mocha -r blanket -R mocha-lcov-reporter | coveralls"
+    "coverage": "istanbul cover _mocha",
+    "coveralls": "istanbul cover _mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -26,10 +26,11 @@
   },
   "homepage": "https://github.com/ww24/mlo",
   "devDependencies": {
-    "blanket": "~1.1.6",
-    "chai": "~2.2.0",
-    "coveralls": "~2.11.2",
-    "mocha": "~1.21.5",
+    "blanket": "^1.1.6",
+    "chai": "^2.2.0",
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.13",
+    "mocha": "^2.2.4",
     "mocha-lcov-reporter": "0.0.2"
   },
   "config": {
@@ -46,6 +47,6 @@
     }
   },
   "dependencies": {
-    "minimatch": "~2.0.5"
+    "minimatch": "^2.0.5"
   }
 }

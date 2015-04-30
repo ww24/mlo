@@ -18,7 +18,7 @@ lib/module_a.js
     module_b.js
     mod-c.js
     mod-d/index.js
-          e.js
+          mod-e.js
 node_modules
 package.json
 ```
@@ -35,6 +35,10 @@ lib["mod-c"] //= require("./lib/mod-c")
 ```
 
 ### Advanced usage [pattern]
+pattern matches filename
+
+ref: [isaacs/minimatch](https://github.com/isaacs/minimatch)
+
 app.js
 ```
 var mlo = require("mlo");
@@ -45,16 +49,17 @@ lib.module_b //= require("./lib/module_b")
 ```
 
 ### Advanced usage [recursively]
+load module recursively
+
 app.js
 ```
 var mlo = require("mlo");
 
-var lib = mlo("lib").load.recursively("mod_*");
-// alias: mlo("lib").load.r("mod_*");
+var lib = mlo("lib").loadRecursively("mod_*");
+// alias: mlo("lib").loadr("mod_*");
 
-lib["mod-c"]        //= require("./lib/mod-c")
-lib["mod-d"].index  //= require("./lib/mod-d")
-lib["mod-d"].e      //= require("./lib/mod-d/e")
+lib["mod-c"]          //= require("./lib/mod-c")
+lib["mod-d"]["mod-e"] //= require("./lib/mod-d/mod-e")
 ```
 
 License
