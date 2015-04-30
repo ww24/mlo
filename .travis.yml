@@ -5,3 +5,7 @@ node_js:
   - "iojs"
 after_script:
   - npm run coveralls
+  - codeclimate < ./coverage/lcov.info
+addons:
+  codeclimate:
+    repo_token: 0eea05d9002691ebf2f0926d94d2623979151e077f941fd39b9d36c8e4d31729

@@ -1,10 +1,12 @@
-mlo [![NPM Version][npm-img]][npm-url] [![Build Status][travis-img]][travis-url] [![Coverage Status][coveralls-img]][coveralls-url]
+mlo
 ===
+
+[![NPM Version][npm-img]][npm-url] [![Build Status][travis-img]][travis-url] [![Coverage Status][coveralls-img]][coveralls-url] [![Code Climate][codeclimate-img]][codeclimate-url] [![Dependency Status][gemnasium-img]][gemnasium-url]
 
 Simple module loader for Node.js
 
-Install
--------
+Installation
+------------
 ```
 npm install mlo
 ```
@@ -25,7 +27,7 @@ package.json
 
 ### Basic usage
 app.js
-```
+```js
 var mlo = require("mlo");
 var lib = mlo("lib").load();
 
@@ -40,7 +42,7 @@ pattern matches filename
 ref: [isaacs/minimatch](https://github.com/isaacs/minimatch)
 
 app.js
-```
+```js
 var mlo = require("mlo");
 var lib = mlo("lib").load("module_*");
 
@@ -52,7 +54,7 @@ lib.module_b //= require("./lib/module_b")
 load module recursively
 
 app.js
-```
+```js
 var mlo = require("mlo");
 
 var lib = mlo("lib").loadRecursively("mod_*");
@@ -69,6 +71,10 @@ License
 [npm-url]: https://www.npmjs.org/package/mlo
 [npm-img]: https://img.shields.io/npm/v/mlo.svg
 [travis-url]: https://travis-ci.org/ww24/mlo
-[travis-img]: https://img.shields.io/travis/ww24/mlo.svg?branch=master
+[travis-img]: https://travis-ci.org/ww24/mlo.svg?branch=master
 [coveralls-url]: https://coveralls.io/r/ww24/mlo?branch=master
-[coveralls-img]: https://img.shields.io/coveralls/ww24/mlo.svg
+[coveralls-img]: https://coveralls.io/repos/ww24/mlo/badge.svg?branch=master
+[codeclimate-url]: https://codeclimate.com/github/ww24/mlo
+[codeclimate-img]: https://codeclimate.com/github/ww24/mlo/badges/gpa.svg
+[gemnasium-url]: https://gemnasium.com/ww24/mlo
+[gemnasium-img]: https://gemnasium.com/ww24/mlo.svg
