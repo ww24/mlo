@@ -49,8 +49,8 @@ app.js
 ```
 var mlo = require("mlo");
 
-var lib = mlo("lib").load.recursively("mod_*");
-// alias: mlo("lib").load.r("mod_*");
+var lib = mlo("lib").loadRecursively("mod_*");
+// alias: mlo("lib").loadr("mod_*");
 
 lib["mod-c"]        //= require("./lib/mod-c")
 lib["mod-d"].index  //= require("./lib/mod-d")

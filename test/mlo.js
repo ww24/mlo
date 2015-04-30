@@ -11,7 +11,7 @@ var path = require("path");
 describe("mlo", function () {
   describe("basic", function () {
     it("no arguments", function () {
-      var libs = mlo("fixtures").load();
+      var libs = mlo("./fixtures").load();
 
       expect(Object.keys(libs)).to.have.length(3);
       expect(libs).to.have.property("module_a", "module_a.js");
@@ -47,6 +47,60 @@ describe("mlo", function () {
   });
 
   describe("recursively", function () {
+    it("loadRecursively", function () {
+      var libs = mlo("fixtures").loadRecursively();
 
+      expect(Object.keys(libs)).to.have.length(5);
+      expect(libs).to.have.property("module_a", "module_a.js");
+      expect(libs).to.have.property("module_b", "module_b.js");
+      expect(libs).to.have.property("mod-c", "mod-c.js");
+
+      expect(libs).to.have.property("mod-d").to.be.an("object");
+      expect(Object.keys(libs["mod-d"])).to.have.length(2);
+      expect(libs["mod-d"]).to.have.property("index", "mod-d/index.js");
+      expect(libs["mod-d"]).to.have.property("e", "mod-d/e.js");
+
+      expect(libs).to.have.property("module.js").to.be.an("object");
+      expect(Object.keys(libs["module.js"])).to.have.length(2);
+      expect(libs["module.js"]).to.have.property("index", "module.js/index.js");
+
+      expect(libs["module.js"]).to.have.property("dir").to.be.an("object");
+      expect(Object.keys(libs["module.js"].dir)).to.have.length(1);
+      expect(libs["module.js"].dir).to.have.property("index", "module.js/dir/index.js");
+    });
+
+    it("alias loadr", function () {
+      var libs = mlo("fixtures").loadr();
+
+      expect(Object.keys(libs)).to.have.length(5);
+      expect(libs).to.have.property("module_a", "module_a.js");
+      expect(libs).to.have.property("module_b", "module_b.js");
+      expect(libs).to.have.property("mod-c", "mod-c.js");
+
+      expect(libs).to.have.property("mod-d").to.be.an("object");
+      expect(Object.keys(libs["mod-d"])).to.have.length(2);
+      expect(libs["mod-d"]).to.have.property("index", "mod-d/index.js");
+      expect(libs["mod-d"]).to.have.property("e", "mod-d/e.js");
+
+      expect(libs).to.have.property("module.js").to.be.an("object");
+      expect(Object.keys(libs["module.js"])).to.have.length(2);
+      expect(libs["module.js"]).to.have.property("index", "module.js/index.js");
+
+      expect(libs["module.js"]).to.have.property("dir").to.be.an("object");
+      expect(Object.keys(libs["module.js"].dir)).to.have.length(1);
+      expect(libs["module.js"].dir).to.have.property("index", "module.js/dir/index.js");
+    });
+
+    it("pattern mod-*", function () {
+      var libs = mlo("fixtures").load("mod-*");
+
+      expect(Object.keys(libs)).to.have.length(2);
+      expect(libs).to.have.property("mod-c", "mod-c.js");
+
+      expect(libs).to.have.property("mod-d").to.be.an("object");
+      expect(Object.keys(libs["mod-d"])).to.have.length(2);
+      expect(libs["mod-d"]).to.have.property("index", "mod-d/index.js");
+      expect(libs["mod-d"]).to.have.property("e", "mod-d/e.js");
+    });
   });
 });
