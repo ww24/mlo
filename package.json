@@ -1,6 +1,6 @@
 {
   "name": "mlo",
-  "version": "0.9.1",
+  "version": "1.0.0",
   "description": "Simple Module Loader",
   "main": "lib/index.js",
   "directories": {

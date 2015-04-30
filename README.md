@@ -35,6 +35,10 @@ lib["mod-c"] //= require("./lib/mod-c")
 ```
 
 ### Advanced usage [pattern]
+pattern matches filename
+
+ref: [isaacs/minimatch](https://github.com/isaacs/minimatch)
+
 app.js
 ```
 var mlo = require("mlo");
@@ -45,6 +49,8 @@ lib.module_b //= require("./lib/module_b")
 ```
 
 ### Advanced usage [recursively]
+load module recursively
+
 app.js
 ```
 var mlo = require("mlo");
