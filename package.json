@@ -26,8 +26,8 @@
   },
   "homepage": "https://github.com/ww24/mlo",
   "devDependencies": {
-    "blanket": "^1.1.6",
     "chai": "^2.2.0",
+    "codeclimate-test-reporter": "0.0.4",
     "coveralls": "^2.11.2",
     "istanbul": "^0.3.13",
     "mocha": "^2.2.4",
