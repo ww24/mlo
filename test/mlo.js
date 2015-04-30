@@ -58,11 +58,11 @@ describe("mlo", function () {
       expect(libs).to.have.property("mod-d").to.be.an("object");
       expect(Object.keys(libs["mod-d"])).to.have.length(2);
       expect(libs["mod-d"]).to.have.property("index", "mod-d/index.js");
-      expect(libs["mod-d"]).to.have.property("e", "mod-d/e.js");
+      expect(libs["mod-d"]).to.have.property("mod-e", "mod-d/mod-e.js");
 
       expect(libs).to.have.property("module.js").to.be.an("object");
       expect(Object.keys(libs["module.js"])).to.have.length(2);
-      expect(libs["module.js"]).to.have.property("index", "module.js/index.js");
+      expect(libs["module.js"]).to.have.property("mod-f", "module.js/mod-f.js");
 
       expect(libs["module.js"]).to.have.property("dir").to.be.an("object");
       expect(Object.keys(libs["module.js"].dir)).to.have.length(1);
@@ -80,11 +80,11 @@ describe("mlo", function () {
       expect(libs).to.have.property("mod-d").to.be.an("object");
       expect(Object.keys(libs["mod-d"])).to.have.length(2);
       expect(libs["mod-d"]).to.have.property("index", "mod-d/index.js");
-      expect(libs["mod-d"]).to.have.property("e", "mod-d/e.js");
+      expect(libs["mod-d"]).to.have.property("mod-e", "mod-d/mod-e.js");
 
       expect(libs).to.have.property("module.js").to.be.an("object");
       expect(Object.keys(libs["module.js"])).to.have.length(2);
-      expect(libs["module.js"]).to.have.property("index", "module.js/index.js");
+      expect(libs["module.js"]).to.have.property("mod-f", "module.js/mod-f.js");
 
       expect(libs["module.js"]).to.have.property("dir").to.be.an("object");
       expect(Object.keys(libs["module.js"].dir)).to.have.length(1);
@@ -92,15 +92,18 @@ describe("mlo", function () {
     });
 
     it("pattern mod-*", function () {
-      var libs = mlo("fixtures").load("mod-*");
+      var libs = mlo("fixtures").loadr("mod-*");
 
-      expect(Object.keys(libs)).to.have.length(2);
+      expect(Object.keys(libs)).to.have.length(3);
       expect(libs).to.have.property("mod-c", "mod-c.js");
 
       expect(libs).to.have.property("mod-d").to.be.an("object");
-      expect(Object.keys(libs["mod-d"])).to.have.length(2);
-      expect(libs["mod-d"]).to.have.property("index", "mod-d/index.js");
-      expect(libs["mod-d"]).to.have.property("e", "mod-d/e.js");
+      expect(Object.keys(libs["mod-d"])).to.have.length(1);
+      expect(libs["mod-d"]).to.have.property("mod-e", "mod-d/mod-e.js");
+
+      expect(libs).to.have.property("module.js").to.be.an("object");
+      expect(Object.keys(libs["module.js"])).to.have.length(1);
+      expect(libs["module.js"]).to.have.property("mod-f", "module.js/mod-f.js");
     });
   });
 });

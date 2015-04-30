@@ -18,7 +18,7 @@ lib/module_a.js
     module_b.js
     mod-c.js
     mod-d/index.js
-          e.js
+          mod-e.js
 node_modules
 package.json
 ```
@@ -52,9 +52,8 @@ var mlo = require("mlo");
 var lib = mlo("lib").loadRecursively("mod_*");
 // alias: mlo("lib").loadr("mod_*");
 
-lib["mod-c"]        //= require("./lib/mod-c")
-lib["mod-d"].index  //= require("./lib/mod-d")
-lib["mod-d"].e      //= require("./lib/mod-d/e")
+lib["mod-c"]          //= require("./lib/mod-c")
+lib["mod-d"]["mod-e"] //= require("./lib/mod-d/mod-e")
 ```
 
 License
