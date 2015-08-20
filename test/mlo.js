@@ -50,7 +50,7 @@ describe("mlo", function () {
     it("loadRecursively", function () {
       var libs = mlo("fixtures").loadRecursively();
 
-      expect(Object.keys(libs)).to.have.length(5);
+      expect(Object.keys(libs)).to.have.length(6);
       expect(libs).to.have.property("module_a", "module_a.js");
       expect(libs).to.have.property("module_b", "module_b.js");
       expect(libs).to.have.property("mod-c", "mod-c.js");
@@ -59,6 +59,11 @@ describe("mlo", function () {
       expect(Object.keys(libs["mod-d"])).to.have.length(2);
       expect(libs["mod-d"]).to.have.property("index", "mod-d/index.js");
       expect(libs["mod-d"]).to.have.property("mod-e", "mod-d/mod-e.js");
+
+      expect(libs).to.have.property("json").to.be.an("object");
+      expect(Object.keys(libs.json)).to.have.length(1);
+      expect(libs.json).to.have.property("data").to.be.an("object");
+      expect(libs.json.data).to.equal(require("./fixtures/json/data.json"));
 
       expect(libs).to.have.property("module.js").to.be.an("object");
       expect(Object.keys(libs["module.js"])).to.have.length(2);
@@ -72,7 +77,7 @@ describe("mlo", function () {
     it("alias loadr", function () {
       var libs = mlo("fixtures").loadr();
 
-      expect(Object.keys(libs)).to.have.length(5);
+      expect(Object.keys(libs)).to.have.length(6);
       expect(libs).to.have.property("module_a", "module_a.js");
       expect(libs).to.have.property("module_b", "module_b.js");
       expect(libs).to.have.property("mod-c", "mod-c.js");
@@ -81,6 +86,11 @@ describe("mlo", function () {
       expect(Object.keys(libs["mod-d"])).to.have.length(2);
       expect(libs["mod-d"]).to.have.property("index", "mod-d/index.js");
       expect(libs["mod-d"]).to.have.property("mod-e", "mod-d/mod-e.js");
+
+      expect(libs).to.have.property("json").to.be.an("object");
+      expect(Object.keys(libs.json)).to.have.length(1);
+      expect(libs.json).to.have.property("data").to.be.an("object");
+      expect(libs.json.data).to.equal(require("./fixtures/json/data.json"));
 
       expect(libs).to.have.property("module.js").to.be.an("object");
       expect(Object.keys(libs["module.js"])).to.have.length(2);
